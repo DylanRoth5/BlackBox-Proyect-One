@@ -46,54 +46,40 @@
             }
             if (menuWidth%2 != 0) { menuWidth++; }
             menuWidth += 20;
+            ConsoleColor background = ConsoleColor.Black;
+            ConsoleColor foreground = ConsoleColor.White;
             while (running){
-                ConsoleColor background = ConsoleColor.Black;
-                ConsoleColor foreground = ConsoleColor.Red;
                 colorFlip(background, foreground);
                 int X = 0;
                 int Y = 0;
+                Draw.rect(X, Y, menuWidth, 2, '═', '║', "╔╗╚╝");
+                Draw.rect(X, Y+2, menuWidth, options.Length+1, '═', '║', "╠╣╚╝");
+                X=(menuWidth/2)-(title.Length/2); 
+                Y++;
                 Console.SetCursorPosition(X, Y);
-
-                Out("╔"); Y++; Console.SetCursorPosition(X, Y);
-                Out("║"); Y++; Console.SetCursorPosition(X, Y);
-                Out("╠"); Y++; Console.SetCursorPosition(X, Y);
-                for (int i = 0; i < options.Length; i++) { Out("║"); Y++; Console.SetCursorPosition(X, Y); }
-                Out("╚"); Y++; Console.SetCursorPosition(X, Y);
-                Y = 0; X++; Console.SetCursorPosition(X, Y);
-                for (int i = 0; i < menuWidth; i++){Out("═"); X++; Console.CursorLeft = X;}
-                Y++; Console.CursorTop = Y;
-                X=(X/2)-(title.Length/2); Console.CursorLeft = X;
-                
                 for (int i = 0; i < title.Length; i++){Out(""+title[i]);X++; Console.CursorLeft = X;}
-                Y++; X = 1; Console.SetCursorPosition(X, Y);
-                for (int i = 0; i < menuWidth; i++){Out("═"); X++; Console.CursorLeft = X;}
-                Y++; Console.CursorTop = Y;
-                
+                Y++;
+                Console.SetCursorPosition(X, Y);
                 for (int i = 0;i < options.Length; i++){
-                    X = menuWidth;
-                    X = (X / 2) - (options[i].Length / 2); Console.CursorLeft = X;
-                    if (result == i+1) { colorFlip(foreground, background); }
-                    for (int j = 0; j < options[i].Length; j++){
-                        Out("" + options[i][j]); X++; Console.CursorLeft = X;
+                    Y++; 
+                    X = (menuWidth / 2) - (options[i].Length / 2); 
+                    Console.SetCursorPosition(X, Y);
+                    if (result == i+1) { 
+                        colorFlip(foreground, background); 
+                        for (int j = 0; j < options[i].Length; j++){
+                            Out("" + options[i][j]); X++; Console.CursorLeft = X;
+                        }
+                        colorFlip(background, foreground);
+                    } else{
+                        for (int j = 0; j < options[i].Length; j++){
+                            Out("" + options[i][j]); X++; Console.CursorLeft = X;
+                        }
                     }
-                    colorFlip(background, foreground);
-                    Y++; Console.CursorTop = Y;
                 }
-                Console.CursorTop = Y; X = 1; Console.CursorLeft = X;
-                for (int i = 0; i < menuWidth; i++){Out("═"); X++; Console.CursorLeft = X;}
-                X = menuWidth+2;
-                Y = 0; Console.CursorTop = Y; X--;
-                Out("╗"); Y++; Console.SetCursorPosition(X, Y);
-                Out("║"); Y++; Console.SetCursorPosition(X, Y);
-                Out("╣"); Y++; Console.SetCursorPosition(X, Y);
-                for (int i = 0; i < options.Length; i++) { Out("║"); Y++; Console.SetCursorPosition(X, Y); }
-                Out("╝"); Y++; Console.SetCursorPosition(X, Y);
-
                 ConsoleKeyInfo k = Console.ReadKey();
                 if (k.Key == ConsoleKey.DownArrow) { result++; }
                 if (k.Key == ConsoleKey.UpArrow) { result--; }
                 if (k.Key == ConsoleKey.Enter) { running = false; }
-
                 if (result < 1) { result = 1; }
                 if (result > options.Length) { result = options.Length; }
             }
