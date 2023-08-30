@@ -31,7 +31,9 @@
                     case 0: 
                         running = false; 
                         break;
-                    default: Tls.OutLine("Mmm..."); Tls.enterClear(); break;
+                    default: 
+                        Tls.OutLine("Algun error sucedio."); Tls.enterClear(); 
+                        break;
                 }
             }
         }
