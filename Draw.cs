@@ -29,10 +29,10 @@ namespace BlackBox_Proyect_One
 
         public static void rect(int x, int y, int width, int height, char horizontal, char vertical, string corners)
         {
-            line(x, y, width, true, horizontal);
-            line(x, y+height, width, true, horizontal);
-            line(x, y, height, false, vertical);
-            line(x+width, y, height, false, vertical);
+            line(x+1, y, width-1, true, horizontal);
+            line(x+1, y+height, width-1, true, horizontal);
+            line(x, y+1, height-1, false, vertical);
+            line(x+width, y+1, height-1, false, vertical);
             point(x, y, corners[0]);
             point(x+width, y, corners[1]);
             point(x, y+height, corners[2]);

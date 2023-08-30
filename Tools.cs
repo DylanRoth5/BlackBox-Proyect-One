@@ -80,12 +80,12 @@
                 int X = 0;
                 int Y = 0;
                 if (apearence==0){
-                    Draw.rect(X, Y, menuWidth, 2, '═', '║', "╔╗╚╝");
-                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '═', '║', "╠╣╚╝");
+                    Draw.rect(X, Y, menuWidth, 2, '═', '║', "╔╗╠╣");
+                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '═', '║', "╠╣╠╣");
                     Draw.rect(X, Y+3+options.Length, menuWidth, 2, '═', '║', "╠╣╚╝");
                 }else if (apearence==1){
-                    Draw.rect(X, Y, menuWidth, 2, '─', '│', "┌┐└┘");
-                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '─', '│', "├┤└┘");
+                    Draw.rect(X, Y, menuWidth, 2, '─', '│', "┌┐├┤");
+                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '─', '│', "├┤├┤");
                     Draw.rect(X, Y+3+options.Length, menuWidth, 2, '─', '│', "├┤└┘");
                 }else if (apearence==2){
                     Draw.rect(X, Y, menuWidth, 2, '█', '█', "████");
@@ -126,7 +126,7 @@
                     if (k.Key == ConsoleKey.Enter) { running = false; }
                     if (k.Key == ConsoleKey.A) { apearence++; }
                 }else{
-                    Thread.Sleep(80);
+                    Thread.Sleep(100);
                     color++;
                 }
                 if (result < 1) { result = 1; }
