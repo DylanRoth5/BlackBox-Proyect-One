@@ -32,9 +32,32 @@
             Console.ForegroundColor = foreground;
         }
 
+        public static ConsoleColor[] colors = { 
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.Blue,	
+                                                ConsoleColor.DarkCyan,
+                                                ConsoleColor.DarkCyan,
+                                                ConsoleColor.DarkCyan,
+                                                ConsoleColor.DarkCyan,		
+                                                ConsoleColor.Cyan,
+                                                ConsoleColor.Cyan,
+                                                ConsoleColor.Cyan,
+                                                ConsoleColor.Cyan,		
+                                                ConsoleColor.Cyan,	
+                                                ConsoleColor.DarkCyan,	
+                                                ConsoleColor.DarkCyan,		
+                                                ConsoleColor.DarkCyan,
+                                                ConsoleColor.DarkCyan,
+                                                };
+
         public static int WriteMenu(string title, string[] options)
         {
-            options = options.Append("Exit.").ToArray(); 
+            options = options.Append("Exit").ToArray(); 
             Console.CursorVisible = false;
             bool running = true;
             int menuWidth = 0;
@@ -48,12 +71,30 @@
             menuWidth += 20;
             ConsoleColor background = ConsoleColor.Black;
             ConsoleColor foreground = ConsoleColor.White;
+            string word = "(a) Appearence";
+            int color=0;
+            int apearence=0;
             while (running){
+                foreground = colors[color];
                 colorFlip(background, foreground);
                 int X = 0;
                 int Y = 0;
-                Draw.rect(X, Y, menuWidth, 2, '═', '║', "╔╗╚╝");
-                Draw.rect(X, Y+2, menuWidth, options.Length+1, '═', '║', "╠╣╚╝");
+                if (apearence==0){
+                    Draw.rect(X, Y, menuWidth, 2, '═', '║', "╔╗╚╝");
+                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '═', '║', "╠╣╚╝");
+                    Draw.rect(X, Y+3+options.Length, menuWidth, 2, '═', '║', "╠╣╚╝");
+                }else if (apearence==1){
+                    Draw.rect(X, Y, menuWidth, 2, '─', '│', "┌┐└┘");
+                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '─', '│', "├┤└┘");
+                    Draw.rect(X, Y+3+options.Length, menuWidth, 2, '─', '│', "├┤└┘");
+                }else if (apearence==2){
+                    Draw.rect(X, Y, menuWidth, 2, '█', '█', "████");
+                    Draw.rect(X, Y+2, menuWidth, options.Length+1, '█', '█', "████");
+                    Draw.rect(X, Y+3+options.Length, menuWidth, 2, '█', '█', "████");
+                }
+
+                ParalelOut(X=(menuWidth/2)-(word.Length/2), Y+4+options.Length, word);
+
                 X=(menuWidth/2)-(title.Length/2); 
                 Y++;
                 Console.SetCursorPosition(X, Y);
@@ -76,12 +117,22 @@
                         }
                     }
                 }
-                ConsoleKeyInfo k = Console.ReadKey();
-                if (k.Key == ConsoleKey.DownArrow) { result++; }
-                if (k.Key == ConsoleKey.UpArrow) { result--; }
-                if (k.Key == ConsoleKey.Enter) { running = false; }
+                
+                Console.SetCursorPosition(0, 0);
+                if (Console.KeyAvailable){
+                    ConsoleKeyInfo k = Console.ReadKey();
+                    if (k.Key == ConsoleKey.DownArrow) { result++; }
+                    if (k.Key == ConsoleKey.UpArrow) { result--; }
+                    if (k.Key == ConsoleKey.Enter) { running = false; }
+                    if (k.Key == ConsoleKey.A) { apearence++; }
+                }else{
+                    Thread.Sleep(80);
+                    color++;
+                }
                 if (result < 1) { result = 1; }
                 if (result > options.Length) { result = options.Length; }
+                if (color >= colors.Length) { color=0; }
+                if (apearence >= 3) { apearence = 0; }
             }
             if (result == options.Length) { result = 0; }
             colorFlip(ConsoleColor.Black, ConsoleColor.White);
