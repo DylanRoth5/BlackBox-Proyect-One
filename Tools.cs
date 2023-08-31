@@ -18,12 +18,10 @@
             return Console.ReadLine();
         }
 
-        public static void clear() { Console.Clear(); }
-
         public static void enterClear()
         {
             readLine();
-            clear();
+            Console.Clear();
         }
 
         public static void colorFlip(ConsoleColor background, ConsoleColor foreground)

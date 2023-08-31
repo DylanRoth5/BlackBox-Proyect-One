@@ -12,11 +12,11 @@
             string title = "Proyect One";
             string[] options = { "Ahorcado", "Tablas" };
             bool running = true;
-            Tls.clear();
+            Console.Clear();
             while (running)
             {
                 int result = Tls.WriteMenu(title, options);
-                Tls.clear();
+                Console.Clear();
                 switch (result)
                 {
                     case 1: 
