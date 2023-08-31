@@ -1,7 +1,6 @@
 namespace BlackBox_Proyect_One
 {
-    public class Tables
-    {
+    internal class Hung{
         public static void Start(){
             
         }

@@ -20,12 +20,11 @@
                 switch (result)
                 {
                     case 1: 
+                        Hung.Start();
                         Tls.enterClear(); 
                         break;
                     case 2: 
-                        Tls.enterClear(); 
-                        break;
-                    case 3:
+                        Tables.Start();
                         Tls.enterClear(); 
                         break;
                     case 0: 
