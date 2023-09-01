@@ -9,9 +9,9 @@ namespace BlackBox_Proyect_One
         public static void Guy(int x, int y, bool rightFeet, bool leftFeet, bool torso, bool righHand, bool leftHand, bool head, int wrong)
         {
             //int wrong=0;
-            bool running=true;
-            while (running)
-            {
+            // bool running=true;
+            // while (running)
+            // {
                 Tls.colorFlip(ConsoleColor.Black,ConsoleColor.DarkRed);
                 Console.SetCursorPosition(x, y);
                 Draw.down(7,'█',null,null);
@@ -27,7 +27,7 @@ namespace BlackBox_Proyect_One
                 if (wrong==3){torso=true;}
                 if (wrong==4){righHand=true;}
                 if (wrong==5){leftHand=true;}
-                if (wrong==6){head=true;running=false;}
+                if (wrong==6){head=true;}//running=false;}
 
                 Tls.colorFlip(ConsoleColor.Black,ConsoleColor.Red);
                 
@@ -37,7 +37,8 @@ namespace BlackBox_Proyect_One
                 if (righHand){Draw.point(x+9,y+3,'\\');}
                 if (leftHand){Draw.point(x+7,y+3,'/');}
                 if (head){Draw.point(x+8,y+2,'0'); Tls.ParalelOut(x+12,y+5,"You Lost");}
-            }
+        //}
+            
         } // end Guy method
 
         public static void GuessingWord()
@@ -53,10 +54,11 @@ namespace BlackBox_Proyect_One
                 "computadora"
             };
 
+            int x1=20, y1=5;
             //le asignamos a la palabra secreta la palabra random que obtuvo el metodo ChooseWord
             string secretWord = ChooseWord(listaDePalabras);
             string hiddenWord = new string('_', secretWord.Length);
-            Console.WriteLine(hiddenWord);
+            Tls.ParalelOut(x1,y1,hiddenWord);
 
             //variables para saber si estamos jugando y "cuantas vidas tenemos" 
             bool gameGoing = true;
@@ -69,7 +71,7 @@ namespace BlackBox_Proyect_One
                 Guy(x,y,rightFeet, leftFeet, torso, righHand, leftHand, head, wrongAttempts);
 
                 Console.Clear();
-                Console.SetCursorPosition(1, 20);
+                Console.SetCursorPosition(20, 10);
                 Console.WriteLine("guess the word: " + hiddenWord);
                 Console.WriteLine($"Wrong Attemps: {wrongAttempts}");
 
