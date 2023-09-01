@@ -12,3 +12,17 @@ C:\Users\dylan\OneDrive\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\r
 C:\Users\dylan\OneDrive\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.pdb
 C:\Users\dylan\OneDrive\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.genruntimeconfig.cache
 C:\Users\dylan\OneDrive\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\ref\BlackBox Proyect One.dll
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\bin\Debug\net7.0\BlackBox Proyect One.exe
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\bin\Debug\net7.0\BlackBox Proyect One.deps.json
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\bin\Debug\net7.0\BlackBox Proyect One.runtimeconfig.json
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\bin\Debug\net7.0\BlackBox Proyect One.dll
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\bin\Debug\net7.0\BlackBox Proyect One.pdb
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.AssemblyInfoInputs.cache
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.AssemblyInfo.cs
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.csproj.CoreCompileInputs.cache
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.dll
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\refint\BlackBox Proyect One.dll
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.pdb
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\BlackBox Proyect One.genruntimeconfig.cache
+C:\Users\UD\Documents\GitHub\BlackBox-Proyect-One\obj\Debug\net7.0\ref\BlackBox Proyect One.dll
