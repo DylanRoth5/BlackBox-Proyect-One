@@ -63,10 +63,9 @@ namespace BlackBox_Proyect_One
             //variables para saber si estamos jugando y "cuantas vidas tenemos" 
             bool gameGoing = true;
             int wrongAttempts = 0;
-
+            bool rightFeet= false, leftFeet= false, torso= false, righHand= false, leftHand= false, head = false;
             while(gameGoing)
             {
-                bool rightFeet= false, leftFeet= false, torso= false, righHand= false, leftHand= false, head = false;
                 int x=0,y=0;
                 Guy(x,y,rightFeet, leftFeet, torso, righHand, leftHand, head, wrongAttempts);
 
