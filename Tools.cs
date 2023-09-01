@@ -72,6 +72,7 @@
             string word = "(a) Appearence";
             int color=0;
             int apearence=0;
+            int animating=0;
             while (running){
                 foreground = colors[color];
                 colorFlip(background, foreground);
@@ -115,12 +116,107 @@
                         }
                     }
                 }
+
+                if (result==1){
+                    if (animating >= 60 && animating < 70){colorFlip(ConsoleColor.Black,ConsoleColor.DarkRed);}
+                    if (animating >= 0 && animating < 10){
+                        ParalelOut(X+menuWidth-12,Y-5,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-4,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-3,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-2,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-1,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y+1,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y+2,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y+3,"                                       ");
+                    }
+                    if (animating >= 0){
+                        Console.SetCursorPosition(X+menuWidth, Y-5);
+                        Draw.down(7,'█',null,null);
+                        Draw.right(5,'█',null,null);
+                        Console.SetCursorPosition(X+menuWidth, Y-5);
+                        Draw.right(8,'█',null,null);
+                        Draw.down(2,'│','█',null);
+                     }
+                    if (animating >= 10 && animating < 20){Draw.point(X+menuWidth+9,Y-5+4,'\\');}
+                    if (animating >= 20 && animating < 30){
+                        Draw.point(X+menuWidth+9,Y-5+4,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+4,'/');}
+                    if (animating >= 30 && animating < 40){
+                        Draw.point(X+menuWidth+9,Y-5+4,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+4,'/');
+                        Draw.point(X+menuWidth+8,Y-5+3,'|');}
+                    if (animating >= 40 && animating < 50){
+                        Draw.point(X+menuWidth+9,Y-5+4,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+4,'/');
+                        Draw.point(X+menuWidth+8,Y-5+3,'|');
+                        Draw.point(X+menuWidth+9,Y-5+3,'\\');}
+                    if (animating >= 50 && animating < 60){
+                        Draw.point(X+menuWidth+9,Y-5+4,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+4,'/');
+                        Draw.point(X+menuWidth+8,Y-5+3,'|');
+                        Draw.point(X+menuWidth+9,Y-5+3,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+3,'/');}
+                    if (animating >= 60 && animating < 70){
+                        Draw.point(X+menuWidth+9,Y-5+4,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+4,'/');
+                        Draw.point(X+menuWidth+8,Y-5+3,'|');
+                        Draw.point(X+menuWidth+9,Y-5+3,'\\');
+                        Draw.point(X+menuWidth+7,Y-5+3,'/');
+                        Draw.point(X+menuWidth+8,Y-5+2,'0');}
+                    if (animating >= 70){animating=0;}
+                    animating+=2;
+                }
+                if (result == 2){
+                    if (animating >= 0 && animating < 10){
+                        ParalelOut(X+menuWidth-12,Y-5,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-4,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-3,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-2,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y-1,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y+1,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y+2,"                                       ");
+                        ParalelOut(X+menuWidth-12,Y+3,"                                       ");
+                    }
+                    if (animating >= 10 && animating < 20){Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┐└┘");}
+                    if (animating >= 20 && animating < 30){
+                        Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┬├┼");
+                        Draw.rect(X+menuWidth, Y-5, 8, 2,'─', '│', "┬┐┼┤");
+                        Draw.rect(X+menuWidth-8, Y+2-5, 8, 2,'─', '│', "├┼└┴");
+                        Draw.rect(X+menuWidth, Y+2-5, 8, 2,'─', '│', "┼┤┴┘");
+                        }
+                    if (animating >= 30){
+                        Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┬├┼");
+                        Draw.rect(X+menuWidth, Y-5, 8, 2,'─', '│', "┬┬┼┼");
+                        Draw.rect(X+menuWidth+8, Y-5, 8, 2,'─', '│', "┬┐┼┤");
+                        Draw.rect(X+menuWidth-8, Y+2-5, 8, 2,'─', '│', "├┼├┼");
+                        Draw.rect(X+menuWidth, Y+2-5, 8, 2,'─', '│', "┼┼┼┼");
+                        Draw.rect(X+menuWidth+8, Y+2-5, 8, 2,'─', '│', "┼┤┼┤");
+                        Draw.rect(X+menuWidth-8, Y+4-5, 8, 2,'─', '│', "├┼└┴");
+                        Draw.rect(X+menuWidth, Y+4-5, 8, 2,'─', '│', "┼┤┴┴");
+                        Draw.rect(X+menuWidth+8, Y+4-5, 8, 2,'─', '│', "┼┤┴┘");
+                    }
+                    if (animating >= 40){animating=0;}
+                    animating+=2;
+                }
+                if (result != 1 && result != 2){
+                    ParalelOut(X+menuWidth-12,Y-5,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y-4,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y-3,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y-2,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y-1,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y+1,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y+2,"                                       ");
+                    ParalelOut(X+menuWidth-12,Y+3,"                                       ");
+                }
                 
                 Console.SetCursorPosition(0, 0);
                 if (Console.KeyAvailable){
                     ConsoleKeyInfo k = Console.ReadKey();
-                    if (k.Key == ConsoleKey.DownArrow) { result++; }
-                    if (k.Key == ConsoleKey.UpArrow) { result--; }
+                    if (k.Key == ConsoleKey.DownArrow) { result++;animating=0; }
+                    if (k.Key == ConsoleKey.UpArrow) { result--;animating=0; }
                     if (k.Key == ConsoleKey.Enter) { running = false; }
                     if (k.Key == ConsoleKey.A) { apearence++; }
                 }else{
