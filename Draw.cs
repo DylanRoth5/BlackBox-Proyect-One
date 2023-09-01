@@ -38,7 +38,6 @@ namespace BlackBox_Proyect_One
             point(x, y+height, corners[2]);
             point(x+width, y + height, corners[3]);
         }
-
         public static void cell(int x, int y,int width, int height, int rows,int columns){
             for (int i = 0;i<columns;i++){
                 for (int j = 0;j<rows;j++){
