@@ -1,15 +1,17 @@
 namespace BlackBox_Proyect_One
 {
-    internal class Hung{
-        public static void Start(){
-            bool rightFeet= false, leftFeet= false, torso= false, righHand= false, leftHand= false, head = false;
-            int x=0,y=0;
-            Guy(x,y,rightFeet, leftFeet, torso, righHand, leftHand, head);
+    internal class Hung
+    {
+        public static void Start()
+        {
+            GuessingWord();
         }
-        public static void Guy(int x, int y, bool rightFeet, bool leftFeet, bool torso, bool righHand, bool leftHand, bool head){
-            int wrong=0;
+        public static void Guy(int x, int y, bool rightFeet, bool leftFeet, bool torso, bool righHand, bool leftHand, bool head, int wrong)
+        {
+            //int wrong=0;
             bool running=true;
-            while (running){
+            while (running)
+            {
                 Tls.colorFlip(ConsoleColor.Black,ConsoleColor.DarkRed);
                 Console.SetCursorPosition(x, y);
                 Draw.down(7,'█',null,null);
@@ -19,10 +21,7 @@ namespace BlackBox_Proyect_One
                 Draw.down(2,'│','█',null);
                 
                 Console.SetCursorPosition(x, y);
-                if (Console.KeyAvailable){
-                        ConsoleKeyInfo k = Console.ReadKey();
-                        if (k.Key == ConsoleKey.Enter) { wrong++; }
-                }
+
                 if (wrong==1){rightFeet=true;}
                 if (wrong==2){leftFeet=true;}
                 if (wrong==3){torso=true;}
@@ -39,6 +38,87 @@ namespace BlackBox_Proyect_One
                 if (leftHand){Draw.point(x+7,y+3,'/');}
                 if (head){Draw.point(x+8,y+2,'0'); Tls.ParalelOut(x+12,y+5,"You Lost");}
             }
+        } // end Guy method
+
+        public static void GuessingWord()
+        {
+
+            // lista de palabras
+            List<string> listaDePalabras = new List<string>
+            {
+                "banana",
+                "elemento",
+                "murcielago",
+                "hospital",
+                "computadora"
+            };
+
+            //le asignamos a la palabra secreta la palabra random que obtuvo el metodo ChooseWord
+            string secretWord = ChooseWord(listaDePalabras);
+            string hiddenWord = new string('_', secretWord.Length);
+            Console.WriteLine(hiddenWord);
+
+            //variables para saber si estamos jugando y "cuantas vidas tenemos" 
+            bool gameGoing = true;
+            int wrongAttempts = 0;
+
+            while(gameGoing)
+            {
+                bool rightFeet= false, leftFeet= false, torso= false, righHand= false, leftHand= false, head = false;
+                int x=0,y=0;
+                Guy(x,y,rightFeet, leftFeet, torso, righHand, leftHand, head, wrongAttempts);
+
+                Console.Clear();
+                Console.SetCursorPosition(1, 20);
+                Console.WriteLine("guess the word: " + hiddenWord);
+                Console.WriteLine($"Wrong Attemps: {wrongAttempts}");
+
+                // Leer la letra ingresada por el jugador
+                Console.Write("Write a Letter: ");
+                char letra = Console.ReadKey().KeyChar;
+
+                if (secretWord.Contains(letra))
+                {
+                    // si la letra esta en la palabra se inserta
+                    for (int i = 0; i < secretWord.Length; i++)
+                    {
+                        if (secretWord[i] == letra)
+                        {
+                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letra.ToString());
+                        }
+                    }
+
+                    // verificar si adivinó la palabra
+                    if (hiddenWord == secretWord)
+                    {
+                        gameGoing = false;
+                        Console.Clear();
+                        Console.WriteLine("¡YOU WON!");
+                        Console.WriteLine("Word: " + secretWord);
+                    }
+
+                    else
+                    {
+                        wrongAttempts++;
+                        if(wrongAttempts == 6)
+                        {
+                            //Console.WriteLine("¡YOU LOST!");
+                            Console.WriteLine("The Word Is: " + secretWord);
+                            gameGoing = false;
+                        }
+                    }
+                }
+            }
+
+        }// end GuessingWord method
+
+        static string ChooseWord(List<string> listaDePalabras)
+        {
+            Random random = new Random();
+            int indiceAleatorio = random.Next(0, listaDePalabras.Count);
+            return listaDePalabras[indiceAleatorio];
         }
-    }
-}
+
+    }//end hung
+//fukfjgv
+}//end workspace
