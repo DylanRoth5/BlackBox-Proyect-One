@@ -181,20 +181,20 @@
                     }
                     if (animating >= 10 && animating < 20){Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┐└┘");}
                     if (animating >= 20 && animating < 30){
-                        Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┬├┼");
-                        Draw.rect(X+menuWidth, Y-5, 8, 2,'─', '│', "┬┐┼┤");
+                        Draw.rect(X+menuWidth-8, Y-5, 8, 2,  '─', '│', "┌┬├┼");
+                        Draw.rect(X+menuWidth, Y-5, 8, 2,    '─', '│', "┬┐┼┤");
                         Draw.rect(X+menuWidth-8, Y+2-5, 8, 2,'─', '│', "├┼└┴");
-                        Draw.rect(X+menuWidth, Y+2-5, 8, 2,'─', '│', "┼┤┴┘");
+                        Draw.rect(X+menuWidth, Y+2-5, 8, 2,  '─', '│', "┼┤┴┘");
                         }
                     if (animating >= 30){
-                        Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┬├┼");
-                        Draw.rect(X+menuWidth, Y-5, 8, 2,'─', '│', "┬┬┼┼");
-                        Draw.rect(X+menuWidth+8, Y-5, 8, 2,'─', '│', "┬┐┼┤");
+                        Draw.rect(X+menuWidth-8, Y-5, 8, 2,  '─', '│', "┌┬├┼");
+                        Draw.rect(X+menuWidth, Y-5, 8, 2,    '─', '│', "┬┬┼┼");
+                        Draw.rect(X+menuWidth+8, Y-5, 8, 2,  '─', '│', "┬┐┼┤");
                         Draw.rect(X+menuWidth-8, Y+2-5, 8, 2,'─', '│', "├┼├┼");
-                        Draw.rect(X+menuWidth, Y+2-5, 8, 2,'─', '│', "┼┼┼┼");
+                        Draw.rect(X+menuWidth, Y+2-5, 8, 2,  '─', '│', "┼┼┼┼");
                         Draw.rect(X+menuWidth+8, Y+2-5, 8, 2,'─', '│', "┼┤┼┤");
                         Draw.rect(X+menuWidth-8, Y+4-5, 8, 2,'─', '│', "├┼└┴");
-                        Draw.rect(X+menuWidth, Y+4-5, 8, 2,'─', '│', "┼┤┴┴");
+                        Draw.rect(X+menuWidth, Y+4-5, 8, 2,  '─', '│', "┼┤┴┴");
                         Draw.rect(X+menuWidth+8, Y+4-5, 8, 2,'─', '│', "┼┤┴┘");
                     }
                     if (animating >= 40){animating=0;}

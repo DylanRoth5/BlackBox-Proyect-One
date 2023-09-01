@@ -39,6 +39,15 @@ namespace BlackBox_Proyect_One
             point(x+width, y + height, corners[3]);
         }
 
+        public static void cell(int x, int y,int width, int height, int rows,int columns){
+            string[] corners = {"┌┐└┘","┌┬├┼","┬┐┼┤","├┼└┴","┼┤┴┘"};
+            for (int i = 0;i<columns;i++){
+                for (int j = 0;j<rows;j++){
+                    rect(x+(i*width), y+(j*height), width, height,'█', '█', "████");
+                }
+            }
+        }
+
         public static void up(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue)
