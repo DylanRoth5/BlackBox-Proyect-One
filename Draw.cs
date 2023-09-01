@@ -40,7 +40,6 @@ namespace BlackBox_Proyect_One
         }
 
         public static void cell(int x, int y,int width, int height, int rows,int columns){
-            // string[] corners = {"┌┐└┘","┌┬├┼","┬┐┼┤","├┼└┴","┼┤┴┘"};
             for (int i = 0;i<columns;i++){
                 for (int j = 0;j<rows;j++){
                     rect(x+(i*width), y+(j*height), width, height,'█', '█', "████");
