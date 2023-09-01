@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UD\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj": {}
+    "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UD\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj": {
+    "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UD\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj",
         "projectName": "BlackBox Proyect One",
-        "projectPath": "C:\\Users\\UD\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj",
-        "packagesPath": "C:\\Users\\UD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UD\\Documents\\GitHub\\BlackBox-Proyect-One\\obj\\",
+        "projectPath": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\BlackBox-Proyect-One\\BlackBox Proyect One.csproj",
+        "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\BlackBox-Proyect-One\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\UD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
