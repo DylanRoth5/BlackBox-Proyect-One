@@ -105,9 +105,13 @@ namespace BlackBox_Proyect_One
                         {
                             head=true;
                             // Console.WriteLine("¡YOU LOST!");
-                            Tls.ParalelOut(x,y,"The Word Is: " + secretWord);
+                            Tls.ParalelOut(x,y+1,"                               ");
+                            Tls.ParalelOut(x,y+2,"                               " );
+                            Tls.ParalelOut(x,y+1,"¡YOU LOST!");
+                            Tls.ParalelOut(x,y+2,"The Word Is: " + secretWord);
                             // Console.WriteLine("The Word Is: " + secretWord);
                             gameGoing = false;
+                            Console.SetCursorPosition(x,y-1);
                         }
                     }
                 }
