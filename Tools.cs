@@ -20,6 +20,11 @@
             Console.SetCursorPosition(nx, ny);
         }
 
+        public static string read()
+        {
+            return Console.ReadLine();
+        }
+
         public static string read(string? word = "")
         {
             if (word.Length > 0) { printLine(word); }

@@ -3,6 +3,8 @@ namespace BlackBox_Proyect_One
     public class Tables
     {
         public static void Start(){
+            Py.read();
+
 
             int X=0;
             int Y=0;
