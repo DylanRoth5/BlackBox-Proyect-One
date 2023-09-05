@@ -35,7 +35,7 @@ namespace BlackBox_Proyect_One
                  int x=0,y=0;
 
                 //dibujo de la horca
-                Tls.colorFlip(ConsoleColor.Black,ConsoleColor.DarkRed);
+                Py.colorFlip(ConsoleColor.Black,ConsoleColor.DarkRed);
                 Console.SetCursorPosition(x, y);
                 Draw.down(7,'█',null,null);
                 Draw.right(5,'█',null,null);
@@ -44,8 +44,8 @@ namespace BlackBox_Proyect_One
                 Draw.down(2,'│','█',null);
 
                 //palabra oculta que vamos a adivinar y los intentos que nos quedan
-                Tls.ParalelOut(x+15,y+8,$"Guess the Word: {hiddenWord}");
-                Tls.ParalelOut(x+15,y+10,$"Attempts Left: {6 - wrongAttempts}");
+                Py.printAt(x+15,y+8,$"Guess the Word: {hiddenWord}");
+                Py.printAt(x+15,y+10,$"Attempts Left: {6 - wrongAttempts}");
 
                 // leer la letra ingresada por el jugador
                 char letra = Console.ReadKey().KeyChar;
@@ -86,7 +86,7 @@ namespace BlackBox_Proyect_One
                     if (wrongAttempts==5){leftHand=true;}
                     if (wrongAttempts==6){head=true;}
 
-                    Tls.colorFlip(ConsoleColor.Black,ConsoleColor.Red);
+                    Py.colorFlip(ConsoleColor.Black,ConsoleColor.Red);
                     
                     //dibujo del hombre
                     if (rightFeet == true){Draw.point(x+9,y+4,'\\');}
@@ -99,8 +99,8 @@ namespace BlackBox_Proyect_One
                         Draw.point(x+8,y+2,'0');
                         gameGoing = false;
                         Console.Clear();
-                        Tls.ParalelOut(y+12,x+5,"You Lost");
-                        Tls.ParalelOut(y+12,x+7,"Word: " + secretWord);
+                        Py.printAt(y+12,x+5,"You Lost");
+                        Py.printAt(y+12,x+7,"Word: " + secretWord);
                     }
                 }
             }

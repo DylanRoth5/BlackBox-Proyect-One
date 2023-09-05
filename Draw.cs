@@ -6,7 +6,7 @@ namespace BlackBox_Proyect_One
         public static void point(int x, int y, char symbol)
         {
             Console.SetCursorPosition(x, y);
-            Tls.Out("" + symbol); 
+            Py.print("" + symbol); 
         }
 
         public static void line(int x, int y, int lenght, bool horizontal, char symbol)
@@ -15,13 +15,13 @@ namespace BlackBox_Proyect_One
             if (horizontal) { 
                 for (int i = 0; i < lenght; i++)
                 {
-                    Tls.Out("" + symbol); 
+                    Py.print("" + symbol); 
                 }
             }
             if (!horizontal) {
                 for (int i = 0; i < lenght; i++)
                 {
-                    Tls.Out("" + symbol);
+                    Py.print("" + symbol);
                     Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
                 }
             }
@@ -50,49 +50,49 @@ namespace BlackBox_Proyect_One
         {
             if (start.HasValue)
             {
-                Tls.Out(""+start);
+                Py.print(""+start);
                 steps--;
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop - 1);
             }
             if (end.HasValue) { steps--; }
             for (int i = 0; i < steps; i++)
             {
-                Tls.Out("" + type);
+                Py.print("" + type);
                 Console.SetCursorPosition(Console.CursorLeft-1, Console.CursorTop-1);
             }
-            if (end.HasValue) { Tls.Out(""+end); }
+            if (end.HasValue) { Py.print(""+end); }
         }
 
         public static void down(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue)
             {
-                Tls.Out("" + start);
+                Py.print("" + start);
                 steps--;
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
             }
             if (end.HasValue) { steps--; }
             for (int i = 0; i < steps; i++)
             {
-                Tls.Out("" + type);
+                Py.print("" + type);
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
             }
-            if (end.HasValue) { Tls.Out("" + end); }
+            if (end.HasValue) { Py.print("" + end); }
         }
         
         public static void right(int steps, char? type, char? start, char? end)
         {
-            if (start.HasValue) { Tls.Out("" + start); steps--; }
+            if (start.HasValue) { Py.print("" + start); steps--; }
             if (end.HasValue) { steps--; }
-            for (int i = 0; i < steps; i++) { Tls.Out("" + type); }
-            if (end.HasValue) { Tls.Out("" + end); }
+            for (int i = 0; i < steps; i++) { Py.print("" + type); }
+            if (end.HasValue) { Py.print("" + end); }
         }
         public static void left(int steps, char? type, char? start, char? end)
         {
-            if (start.HasValue) { Console.CursorLeft -= 2; Tls.Out("" + start); steps--; }
+            if (start.HasValue) { Console.CursorLeft -= 2; Py.print("" + start); steps--; }
             if (end.HasValue) { steps--; }
-            for (int i = 0; i < steps; i++) { Console.CursorLeft -= 2; Tls.Out("" + type); }
-            if (end.HasValue) { Tls.Out("" + end); }
+            for (int i = 0; i < steps; i++) { Console.CursorLeft -= 2; Py.print("" + type); }
+            if (end.HasValue) { Py.print("" + end); }
         }
     }
 }

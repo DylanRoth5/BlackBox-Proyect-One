@@ -15,23 +15,23 @@
             Console.Clear();
             while (running)
             {
-                int result = Tls.WriteMenu(title, options);
+                int result = Py.menu(title, options);
                 Console.Clear();
                 switch (result)
                 {
                     case 1: 
                         Hung.Start();
-                        Tls.enterClear(); 
+                        Py.enterClear(); 
                         break;
                     case 2: 
                         Tables.Start();
-                        Tls.enterClear(); 
+                        Py.enterClear(); 
                         break;
                     case 0: 
                         running = false; 
                         break;
                     default: 
-                        Tls.OutLine("Algun error sucedio."); Tls.enterClear(); 
+                        Py.printLine("Algun error sucedio."); Py.enterClear(); 
                         break;
                 }
             }

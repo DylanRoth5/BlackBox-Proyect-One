@@ -1,26 +1,34 @@
 ﻿namespace BlackBox_Proyect_One
 {
-    public class Tls
+    public class Py
     {
 
-        public static void OutLine(string? word="")
+        public static void printLine(string? word="")
         {
             Console.WriteLine("" + word);
         }
-        public static void Out(string? word = "")
+        public static void print(string? word = "")
         {
             Console.Write("" + word);
         }
-
-        public static string readLine(string? word = "")
+        public static void printAt(int x,int y, string? word)
         {
-            if (word.Length > 0) { OutLine(word); }
+            int nx = Console.CursorLeft;
+            int ny = Console.CursorTop;
+            Console.SetCursorPosition(x, y);
+            print(word);
+            Console.SetCursorPosition(nx, ny);
+        }
+
+        public static string read(string? word = "")
+        {
+            if (word.Length > 0) { printLine(word); }
             return Console.ReadLine();
         }
 
         public static void enterClear()
         {
-            readLine();
+            read();
             Console.Clear();
         }
 
@@ -53,7 +61,7 @@
                                                 ConsoleColor.DarkCyan,
                                                 };
 
-        public static int WriteMenu(string title, string[] options)
+        public static int menu(string title, string[] options)
         {
             options = options.Append("Exit").ToArray(); 
             Console.CursorVisible = false;
@@ -92,12 +100,12 @@
                     Draw.rect(X, Y+3+options.Length, menuWidth, 2, '█', '█', "████");
                 }
 
-                ParalelOut(X=(menuWidth/2)-(word.Length/2), Y+4+options.Length, word);
+                printAt(X=(menuWidth/2)-(word.Length/2), Y+4+options.Length, word);
 
                 X=(menuWidth/2)-(title.Length/2); 
                 Y++;
                 Console.SetCursorPosition(X, Y);
-                for (int i = 0; i < title.Length; i++){Out(""+title[i]);X++; Console.CursorLeft = X;}
+                for (int i = 0; i < title.Length; i++){print(""+title[i]);X++; Console.CursorLeft = X;}
                 Y++;
                 Console.SetCursorPosition(X, Y);
                 for (int i = 0;i < options.Length; i++){
@@ -107,12 +115,12 @@
                     if (result == i+1) { 
                         colorFlip(foreground, background); 
                         for (int j = 0; j < options[i].Length; j++){
-                            Out("" + options[i][j]); X++; Console.CursorLeft = X;
+                            print("" + options[i][j]); X++; Console.CursorLeft = X;
                         }
                         colorFlip(background, foreground);
                     } else{
                         for (int j = 0; j < options[i].Length; j++){
-                            Out("" + options[i][j]); X++; Console.CursorLeft = X;
+                            print("" + options[i][j]); X++; Console.CursorLeft = X;
                         }
                     }
                 }
@@ -120,15 +128,15 @@
                 if (result==1){
                     if (animating >= 60 && animating < 70){colorFlip(ConsoleColor.Black,ConsoleColor.DarkRed);}
                     if (animating >= 0 && animating < 10){
-                        ParalelOut(X+menuWidth-12,Y-5,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-4,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-3,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-2,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-1,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y+1,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y+2,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y+3,"                                       ");
+                        printAt(X+menuWidth-12,Y-5,"                                       ");
+                        printAt(X+menuWidth-12,Y-4,"                                       ");
+                        printAt(X+menuWidth-12,Y-3,"                                       ");
+                        printAt(X+menuWidth-12,Y-2,"                                       ");
+                        printAt(X+menuWidth-12,Y-1,"                                       ");
+                        printAt(X+menuWidth-12,Y,"                                       ");
+                        printAt(X+menuWidth-12,Y+1,"                                       ");
+                        printAt(X+menuWidth-12,Y+2,"                                       ");
+                        printAt(X+menuWidth-12,Y+3,"                                       ");
                     }
                     if (animating >= 0){
                         Console.SetCursorPosition(X+menuWidth, Y-5);
@@ -169,15 +177,15 @@
                 }
                 if (result == 2){
                     if (animating >= 0 && animating < 10){
-                        ParalelOut(X+menuWidth-12,Y-5,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-4,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-3,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-2,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y-1,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y+1,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y+2,"                                       ");
-                        ParalelOut(X+menuWidth-12,Y+3,"                                       ");
+                        printAt(X+menuWidth-12,Y-5,"                                       ");
+                        printAt(X+menuWidth-12,Y-4,"                                       ");
+                        printAt(X+menuWidth-12,Y-3,"                                       ");
+                        printAt(X+menuWidth-12,Y-2,"                                       ");
+                        printAt(X+menuWidth-12,Y-1,"                                       ");
+                        printAt(X+menuWidth-12,Y,"                                       ");
+                        printAt(X+menuWidth-12,Y+1,"                                       ");
+                        printAt(X+menuWidth-12,Y+2,"                                       ");
+                        printAt(X+menuWidth-12,Y+3,"                                       ");
                     }
                     if (animating >= 10 && animating < 20){Draw.rect(X+menuWidth-8, Y-5, 8, 2,'─', '│', "┌┐└┘");}
                     if (animating >= 20 && animating < 30){
@@ -201,15 +209,15 @@
                     animating+=2;
                 }
                 if (result != 1 && result != 2){
-                    ParalelOut(X+menuWidth-12,Y-5,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y-4,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y-3,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y-2,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y-1,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y+1,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y+2,"                                       ");
-                    ParalelOut(X+menuWidth-12,Y+3,"                                       ");
+                    printAt(X+menuWidth-12,Y-5,"                                       ");
+                    printAt(X+menuWidth-12,Y-4,"                                       ");
+                    printAt(X+menuWidth-12,Y-3,"                                       ");
+                    printAt(X+menuWidth-12,Y-2,"                                       ");
+                    printAt(X+menuWidth-12,Y-1,"                                       ");
+                    printAt(X+menuWidth-12,Y,"                                       ");
+                    printAt(X+menuWidth-12,Y+1,"                                       ");
+                    printAt(X+menuWidth-12,Y+2,"                                       ");
+                    printAt(X+menuWidth-12,Y+3,"                                       ");
                 }
                 
                 Console.SetCursorPosition(0, 0);
@@ -231,15 +239,6 @@
             if (result == options.Length) { result = 0; }
             colorFlip(ConsoleColor.Black, ConsoleColor.White);
             return result;
-        }
-
-        public static void ParalelOut(int x,int y, string? word)
-        {
-            int nx = Console.CursorLeft;
-            int ny = Console.CursorTop;
-            Console.SetCursorPosition(x, y);
-            Out(word);
-            Console.SetCursorPosition(nx, ny);
         }
 
     }
