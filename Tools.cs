@@ -7,21 +7,30 @@
         {
             Console.WriteLine("" + word);
         }
-        public static void print(string? word = "")
+        public static void print(string word)
         {
             Console.Write("" + word);
         }
-        public static void printAt(int x,int y, string? word)
+        public static void printAt(int x,int y, string word)
         {
-            int nx = Console.CursorLeft;
-            int ny = Console.CursorTop;
-            Console.SetCursorPosition(x, y);
+            // int nx = Console.CursorLeft;
+            // int ny = Console.CursorTop;
+            setPos(x, y);
             print(word);
-            Console.SetCursorPosition(nx, ny);
+            // Console.SetCursorPosition(nx, ny);
         }
 
         public static string read()
         {
+            return Console.ReadLine();
+        }
+        public static void setPos(int x, int y){
+            Console.SetCursorPosition(x,y);
+        }
+        
+        public static string readAt(int x, int y)
+        {
+            setPos(x,y);
             return Console.ReadLine();
         }
 
@@ -30,11 +39,28 @@
             if (word.Length > 0) { printLine(word); }
             return Console.ReadLine();
         }
+        public static int readInt()
+        {
+            int result;
+            int.TryParse(Console.ReadLine(),out result);
+            return result;
+        }
 
+        public static int readInt(string? word = "")
+        {
+            if (word.Length > 0) { printLine(word); }
+            int result;
+            int.TryParse(Console.ReadLine(),out result);
+            return result;
+        }
+        
+        public static void clean(){
+            Console.Clear();
+        }
         public static void enterClear()
         {
             read();
-            Console.Clear();
+            clean();
         }
 
         public static void colorFlip(ConsoleColor background, ConsoleColor foreground)

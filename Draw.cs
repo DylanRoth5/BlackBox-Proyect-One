@@ -38,10 +38,18 @@ namespace BlackBox_Proyect_One
             point(x, y+height, corners[2]);
             point(x+width, y + height, corners[3]);
         }
-        public static void cell(int x, int y,int width, int height, int rows,int columns){
+        public static void cell(int x, int y,int width, int height){
+            rect(x+width, y+(height+1), width, height,'█', '█', "████");
+        }
+        public static void cell(int x, int y,int width, int lines,string info){
+            Py.printAt(x+1,y+1,info);
+            Py.colorFlip(ConsoleColor.Black,ConsoleColor.White);
+            rect(x, y, width+1, lines+1,'█', '█', "████");
+        }
+        public static void cells(int x, int y,int width, int height, int rows,int columns){
             for (int i = 0;i<columns;i++){
                 for (int j = 0;j<rows;j++){
-                    rect(x+(i*width), y+(j*height), width, height,'█', '█', "████");
+                    rect(x+(i*width), y+(j*(height+1)), width, height,'█', '█', "████");
                 }
             }
         }
