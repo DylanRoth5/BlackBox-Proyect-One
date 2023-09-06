@@ -2,7 +2,7 @@ using System.Diagnostics.Contracts;
 
 namespace BlackBox_Proyect_One
 {
-    public class Table
+    internal class Table
     {
         // Multi-Dimensional array that stores the values of the table's cells
         string[,] matrix;

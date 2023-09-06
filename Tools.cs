@@ -1,6 +1,6 @@
 ﻿namespace BlackBox_Proyect_One
 {
-    public class Tls
+    internal class Tls
     {
 
         public static void OutLine(string? word="")
