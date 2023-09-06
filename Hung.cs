@@ -4,27 +4,31 @@ namespace BlackBox_Proyect_One
     {
         public static void Start()
         {
-            // lista de palabras
+            // Listas de palabras para el ahorcado
             List<string> listaDePalabras = new List<string>
             {
-                "banana",
-                "elemento",
-                "murcielago",
-                "hospital",
-                "computadora",
-                "emoji",
-                "pastor",
-                "dios",
-                "mochila",
-                "auto",
-                "gorila",
-                "argentina",
-                "atmosfera",
+                "BANANA",
+                "ELEMENTO",
+                "MURCIELAGO",
+                "HOSPITAL",
+                "COMPUTADORA",
+                "EMOJI",
+                "PASTOR",
+                "DIOS",
+                "MOCHILA",
+                "AUTO",
+                "GORILA",
+                "ARGENTINA",
+                "ATMOSFERA",
+                "GEOMETRIA",
+                "ANALISIS",
+                "JIRAFA",
             };
 
             //le asignamos a la palabra secreta la palabra random que obtuvo el metodo ChooseWord
             string secretWord = ChooseWord(listaDePalabras);
             string hiddenWord = new string('_', secretWord.Length);
+
 
             //variables para saber si estamos jugando y "cuantas vidas tenemos" 
             bool gameGoing = true;
@@ -47,17 +51,17 @@ namespace BlackBox_Proyect_One
                 Py.printAt(x+15,y+8,$"Guess the Word: {hiddenWord}");
                 Py.printAt(x+15,y+10,$"Attempts Left: {6 - wrongAttempts}");
 
-                // leer la letra ingresada por el jugador
-                char letra = Console.ReadKey().KeyChar;
+                // leer la letter ingresada por el jugador
+                char letter = Py.validateLetter();
 
-                if (secretWord.Contains(letra))
+                if (secretWord.Contains(letter))
                 {
-                    // si la letra esta en la palabra se inserta
+                    // si la letter esta en la palabra se inserta
                     for (int i = 0; i < secretWord.Length; i++)
                     {
-                        if (secretWord[i] == letra)
+                        if (secretWord[i] == letter)
                         {
-                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letra.ToString());
+                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letter.ToString());
                         }
                         
                     }

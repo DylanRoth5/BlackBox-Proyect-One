@@ -2,6 +2,24 @@
 {
     public class Py
     {
+        //Valida que un caracter sea una letra y se asegura de que siempre se devuelva una letra en mayúscula
+        public static char validateLetter(){
+            //Convierte la letra a ASCII
+            char letter = ' ';
+            ConsoleKeyInfo consoleKeyInfo;
+            do {
+                consoleKeyInfo = Console.ReadKey(intercept: true);
+                int ASCII = Convert.ToInt32(consoleKeyInfo.KeyChar);
+                if((ASCII >= 97 && ASCII <= 122)||(ASCII >= 65 && ASCII<=90)){
+                    letter = consoleKeyInfo.KeyChar;
+                }
+            }while(letter == ' ');
+            if(letter != ' ')
+            {
+                return char.ToUpper(letter);
+            }
+            return validateLetter();
+        }
 
         public static void printLine(string? word="")
         {
