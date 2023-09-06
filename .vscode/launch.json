@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
         {
             // Use IntelliSense para averiguar qué atributos existen para la depuración de C#.
             // Usar el puntero por encima para la descripción de los atributos existentes
@@ -14,13 +15,8 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             // Para obtener más información sobre el campo \"consola\", consulte https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "externalTerminal",
             "stopAtEntry": false
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach"
         }
     ]
 }

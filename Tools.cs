@@ -12,10 +12,11 @@
             Console.Write("" + word);
         }
 
-        public static string readLine(string? word = "")
+        public static string readLine(string ? word = null)
         {
-            if (word.Length > 0) { OutLine(word); }
-            return Console.ReadLine();
+            if (word is not null) { OutLine(word); }
+            string? line = Console.ReadLine() ?? string.Empty;
+            return line;
         }
 
         public static void clear() { Console.Clear(); }
@@ -97,5 +98,10 @@
             Console.SetCursorPosition(nx, ny);
         }
 
+        public static void PrintAt(string str, int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(str);
+        }
     }
 }

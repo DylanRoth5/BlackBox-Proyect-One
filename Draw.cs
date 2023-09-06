@@ -8,7 +8,6 @@ namespace BlackBox_Proyect_One
             Console.SetCursorPosition(x, y);
             Tls.Out("" + symbol); 
         }
-
         public static void line(int x, int y, int lenght, bool horizontal, char symbol)
         {
             Console.SetCursorPosition(x,y);
@@ -26,7 +25,6 @@ namespace BlackBox_Proyect_One
                 }
             }
         }
-
         public static void rect(int x, int y, int width, int height, char horizontal, char vertical, string corners)
         {
             line(x, y, width, true, horizontal);
@@ -38,7 +36,6 @@ namespace BlackBox_Proyect_One
             point(x, y+height, corners[2]);
             point(x+width, y + height, corners[3]);
         }
-
         public static void up(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue)
@@ -55,7 +52,6 @@ namespace BlackBox_Proyect_One
             }
             if (end.HasValue) { Tls.Out(""+end); }
         }
-
         public static void down(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue)
@@ -72,7 +68,6 @@ namespace BlackBox_Proyect_One
             }
             if (end.HasValue) { Tls.Out("" + end); }
         }
-        
         public static void right(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue) { Tls.Out("" + start); steps--; }
