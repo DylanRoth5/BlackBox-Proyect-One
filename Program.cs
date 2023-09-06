@@ -24,7 +24,7 @@
                         Py.enterClear(); 
                         break;
                     case 2: 
-                        Tables.Start();
+                        nTable.Start();
                         Py.enterClear(); 
                         break;
                     case 0: 
