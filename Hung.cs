@@ -44,11 +44,11 @@ namespace BlackBox_Proyect_One
                 Py.printAt(15, 10, $"Attempts Left: {6 - wrongAttempts}");
 
                 //palabra oculta que vamos a adivinar y los intentos que nos quedan
-                Py.printAt(x+15,y+8,$"Guess the Word: {hiddenWord}");
-                Py.printAt(x+15,y+10,$"Attempts Left: {6 - wrongAttempts}");
+                Py.printAt(15,8,$"Guess the Word: {hiddenWord}");
+                Py.printAt(15,10,$"Attempts Left: {6 - wrongAttempts}");
 
                 // leer la letra ingresada por el jugador
-                char letra = Console.ReadKey().KeyChar;
+                char letter = Py.validateLetter();
 
                 if (secretWord.Contains(letter))
                 {
