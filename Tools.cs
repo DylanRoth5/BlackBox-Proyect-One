@@ -245,6 +245,5 @@
             colorFlip(ConsoleColor.Black, ConsoleColor.White);
             return result;
         }
-
     }
 }

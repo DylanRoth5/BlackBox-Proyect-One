@@ -8,7 +8,6 @@ namespace BlackBox_Proyect_One
             Console.SetCursorPosition(x, y);
             Py.print("" + symbol); 
         }
-
         public static void line(int x, int y, int lenght, bool horizontal, char symbol)
         {
             Console.SetCursorPosition(x,y);
@@ -26,7 +25,6 @@ namespace BlackBox_Proyect_One
                 }
             }
         }
-
         public static void rect(int x, int y, int width, int height, char horizontal, char vertical, string corners)
         {
             line(x+1, y, width-1, true, horizontal);
@@ -62,7 +60,6 @@ namespace BlackBox_Proyect_One
             }
             if (end.HasValue) { Py.print(""+end); }
         }
-
         public static void down(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue)
@@ -79,7 +76,6 @@ namespace BlackBox_Proyect_One
             }
             if (end.HasValue) { Py.print("" + end); }
         }
-        
         public static void right(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue) { Py.print("" + start); steps--; }
