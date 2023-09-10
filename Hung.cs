@@ -4,46 +4,64 @@ namespace BlackBox_Proyect_One
     {
         public static void Start()
         {
-            // Lista de palabras para adivinar
-            List<string> listaDePalabras = new()
+            // List of words
+            List<string> wordsList = new List<string>
             {
-                "banana", "elemento", "murcielago", "hospital", "computadora",
-                "emoji", "pastor", "dios", "mochila", "auto", "gorila",
-                "argentina", "atmosfera"
+                "BANANA",
+                "ELEMENTO",
+                "MURCIELAGO",
+                "HOSPITAL",
+                "COMPUTADORA",
+                "EMOJI",
+                "PASTOR",
+                "DIOS",
+                "MOCHILA",
+                "AUTO",
+                "GORILA",
+                "ARGENTINA",
+                "ATMOSFERA",
+                "GEOMETRIA",
+                "ANALISIS",
+                "JIRAFA",
             };
 
-            // Seleccionamos una palabra secreta al azar
-            string secretWord = ChooseWord(listaDePalabras);
+            // Select one word at random
+            string secretWord = ChooseWord(wordsList);
             string hiddenWord = new('_', secretWord.Length);
 
-            // Variables para controlar el juego y los intentos fallidos
+
+            // Variables to control play and failed attempts
             bool gameGoing = true;
             int wrongAttempts = 0;
 
             while (gameGoing)
             {
-                // Dibujo de la horca
+                // Gallows drawing
                 Gallow(0, 0);
 
-                // Mostramos la palabra oculta y los intentos restantes
+                // Show the hiddden word and the remaining guesses
                 Py.printAt(15, 8, $"Guess the Word: {hiddenWord}");
                 Py.printAt(15, 10, $"Attempts Left: {6 - wrongAttempts}");
 
-                // Leer la letra ingresada por el jugador
-                char letra = Console.ReadKey().KeyChar;
+                //The hidden word that we are going to guess and the attempts we have left are passed through the console
+                Py.printAt(15,8,$"Guess the Word: {hiddenWord}");
+                Py.printAt(15,10,$"Attempts Left: {6 - wrongAttempts}");
 
-                if (secretWord.Contains(letra))
+                // The letter entered by the player is read
+                char letter = Py.validateLetter();
+
+                if (secretWord.Contains(letter))
                 {
-                    // Si la letra está en la palabra, la insertamos en la palabra oculta
+                    // If the letter entered is found in the word, it is printed
                     for (int i = 0; i < secretWord.Length; i++)
                     {
-                        if (secretWord[i] == letra)
+                        if (secretWord[i] == letter)
                         {
-                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letra.ToString());
+                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letter.ToString());
                         }
                     }
 
-                    // Verificar si adivinó la palabra
+                    // Check if the word was guessed
                     if (hiddenWord == secretWord)
                     {
                         gameGoing = false;
@@ -53,13 +71,13 @@ namespace BlackBox_Proyect_One
                 }
                 else
                 {
-                    // Incrementamos los intentos fallidos hasta 6 (la cantidad de figuras que entran en el ahorcado)
+                    // Increased failed attempts to six, which is the number of limbs the Hangman has
                     wrongAttempts++;
                     bool rightFeet = false, leftFeet = false, torso = false, rightHand = false, leftHand = false, head = false;
 
                     Console.SetCursorPosition(0, 0);
 
-                    // Dibujamos una parte del cuerpo cada vez que se comete un error
+                    //A body part is drawn every time a mistake is made
                     if (wrongAttempts == 1) { rightFeet = true; }
                     if (wrongAttempts == 2) { leftFeet = true; }
                     if (wrongAttempts == 3) { torso = true; }
@@ -69,7 +87,7 @@ namespace BlackBox_Proyect_One
 
                     Py.colorFlip(ConsoleColor.Black, ConsoleColor.Red);
 
-                    // Dibujamos el cuerpo del ahorcado
+                    // Parts of the body to draw
                     if (rightFeet) { Draw.point(9, 4, '\\'); }
                     if (leftFeet) { Draw.point(7, 4, '/'); }
                     if (torso) { Draw.point(8, 3, '|'); }
@@ -87,15 +105,15 @@ namespace BlackBox_Proyect_One
             }
         }
 
-        // Método para elegir una palabra al azar de la lista
-        static string ChooseWord(List<string> listaDePalabras)
+        // The fuction receives a list of words as a parameter and randomly chooses the index of one of them
+        static string ChooseWord(List<string> wordsList)
         {
             Random random = new();
-            int indiceAleatorio = random.Next(0, listaDePalabras.Count);
-            return listaDePalabras[indiceAleatorio];
+            int randomIndex = random.Next(0, wordsList.Count);
+            return wordsList[randomIndex];
         }
 
-        // Función para dibujar la horca
+        // The function receives parameters in x and y to position the pointer and draw the gallow
         static void Gallow(int x, int y)
         {
             Py.colorFlip(ConsoleColor.Black, ConsoleColor.DarkRed);
@@ -104,7 +122,7 @@ namespace BlackBox_Proyect_One
             Draw.down(7, '█', null, null);
             Draw.right(5, '█', null, null);
 
-            //Ponemos otra vez SetCursorPosition para reiniciar la x e y a 0
+            //Resets the position of x and y to the first position
             Console.SetCursorPosition(x, y);
             Draw.right(8, '█', null, null);
             Draw.down(2, '│', '█', null);

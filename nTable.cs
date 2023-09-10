@@ -31,16 +31,6 @@ namespace BlackBox_Proyect_One
             string[,] m3 = new string[,] {{ "Name", "Lastname", "Age"}};
             Table table = new Table(m);
             table.DrawTable();
-            // table = new Table(m1);
-            // Console.SetCursorPosition(35, 5);
-            // table.DrawTable();
-            // table = new Table(m2);
-            // Console.SetCursorPosition(5, 17);
-            // table.DrawTable();
-            // table = new Table(m3);
-            // Console.SetCursorPosition(35, 17);
-            // table.DrawTable();
-            // Console.SetCursorPosition(0, 30);
             Console.WriteLine("Press any key to exit...");
             Console.ReadLine();
 

@@ -2,7 +2,26 @@
 {
     public class Py
     {
-
+        //Valida que un caracter sea una letra y se asegura de que siempre se devuelva una letra en mayúscula
+        public static char validateLetter(){
+            //Convierte la letra a ASCII
+            char letter = ' ';
+            ConsoleKeyInfo consoleKeyInfo;
+            do {
+                consoleKeyInfo = Console.ReadKey(intercept: true);
+                int ASCII = Convert.ToInt32(consoleKeyInfo.KeyChar);
+                if((ASCII >= 97 && ASCII <= 122)||(ASCII >= 65 && ASCII<=90)){
+                    letter = consoleKeyInfo.KeyChar;
+                }
+            }while(letter == ' ');
+            if(letter != ' ')
+            {
+                return char.ToUpper(letter);
+            }
+            //Si no es una letra la vuelve a ejecutar recursivamente hasta que se seleccione una letra
+            return validateLetter();
+        }
+        //Las funciones de printLine y print son para ahorrar tiempo al querer escribir por la consola
         public static void printLine(string? word="")
         {
             Console.WriteLine("" + word);
@@ -11,6 +30,8 @@
         {
             Console.Write("" + word);
         }
+        //Escribe por consola ingresandole los parametros de posición, cambiando la posición del cursor y luego
+        //devolviendolos a la posición original
         public static void printAt(int x,int y, string? word)
         {
             int nx = Console.CursorLeft;
@@ -19,24 +40,25 @@
             print(word);
             Console.SetCursorPosition(nx, ny);
         }
-
+        //La función read ahorra tiempo al querer poner un input
         public static string read()
         {
             return Console.ReadLine();
         }
-
+        //La siguiente función permite imprimir por pantalla un mensaje antes de ingresar un input
         public static string read(string? word = "")
         {
             if (word.Length > 0) { printLine(word); }
             return Console.ReadLine();
         }
-
+        //La siguiente función permite limpiar la consola al seleccionar enter
         public static void enterClear()
         {
             read();
             Console.Clear();
         }
 
+        //La siguiente función cambia los colores de la consola
         public static void colorFlip(ConsoleColor background, ConsoleColor foreground)
         {
             Console.BackgroundColor = background;
