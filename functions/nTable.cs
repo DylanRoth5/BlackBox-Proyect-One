@@ -3,15 +3,14 @@ namespace BlackBox_Proyect_One
     internal class nTable
     {
         public static void Start(){
-
-        string[,] m = new string[,] 
-            {
+            string[,] m = new string[,] {
                 { "Name", "Lastname", "Age"},
                 { "Teo", "Furlan", "20"},
                 { "Enzo", "Labatte", "20"},
                 { "Dylan", "Roth", "20"},
                 { "Aylem", "Villalba", "20"}
             };
+            /*
             string [,] m1 = new string[,] 
             {
                 { "Name", "Lastname"},
@@ -28,6 +27,7 @@ namespace BlackBox_Proyect_One
                 { "Dylan"},
                 { "Aylem"}
             };
+            */
             string[,] m3 = new string[,] {{ "Name", "Lastname", "Age"}};
             Table table = new Table(m);
             table.DrawTable();
@@ -43,9 +43,8 @@ namespace BlackBox_Proyect_One
             table.DrawTable();
             Console.SetCursorPosition(0, 30);
             */
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadLine();
-
+            Cs.PrintLine("Press any key to exit...");
+            Cs.Read();
         }
     }
 }

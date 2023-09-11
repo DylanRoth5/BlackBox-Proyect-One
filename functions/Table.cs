@@ -69,7 +69,7 @@ namespace BlackBox_Proyect_One
                     // If the first row is the title's row, so if i = 0 the word is going to be written
                     // in red to make it clear that it's a title, else it'll be just printed in white
                     Console.ForegroundColor = (i == 0) ? ConsoleColor.Red : ConsoleColor.White;
-                    Cs.printAt( x + 1, y + 1,$" {matrix[i, j]}");
+                    Cs.PrintAt( x + 1, y + 1,$" {matrix[i, j]}");
                     // Resets the ForegroungColour to white
                     Console.ForegroundColor = ConsoleColor.White;
                     // increments the x coordinate with the widht value so the next column starts where

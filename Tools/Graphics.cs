@@ -5,7 +5,7 @@ namespace BlackBox_Proyect_One
         public static void point(int x, int y, char symbol)
         {
             Console.SetCursorPosition(x, y);
-            Cs.print("" + symbol); 
+            Cs.Print("" + symbol); 
         }
 
         //This function draws a line, receives the x and y parameters for the position. Also the parameters of length, orientation and symbol to print
@@ -16,14 +16,14 @@ namespace BlackBox_Proyect_One
             if (horizontal) { 
                 for (int i = 0; i < lenght; i++)
                 {
-                    Cs.print("" + symbol); 
+                    Cs.Print("" + symbol); 
                 }
             }
             //If the orientation is vertical, said parameter would be false, therefore the following code would be executed
             if (!horizontal) {
                 for (int i = 0; i < lenght; i++)
                 {
-                    Cs.print("" + symbol);
+                    Cs.Print("" + symbol);
                     Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
                 }
             }
@@ -54,7 +54,7 @@ namespace BlackBox_Proyect_One
         {
             if (start.HasValue)
             {
-                Cs.print(""+start);
+                Cs.Print(""+start);
                 steps--;
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop - 1);
             }
@@ -62,16 +62,16 @@ namespace BlackBox_Proyect_One
             // Loop to print the specified character (type) and adjust the console position up
             for (int i = 0; i < steps; i++)
             {
-                Cs.print("" + type);
+                Cs.Print("" + type);
                 Console.SetCursorPosition(Console.CursorLeft-1, Console.CursorTop-1);
             }
-            if (end.HasValue) { Cs.print(""+end); }
+            if (end.HasValue) { Cs.Print(""+end); }
         }
         public static void down(int steps, char? type, char? start, char? end)
         {
             if (start.HasValue)
             {
-                Cs.print("" + start);
+                Cs.Print("" + start);
                 steps--;
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
             }
@@ -79,24 +79,24 @@ namespace BlackBox_Proyect_One
              // Loop to print the specified character (type) and adjust the console position down
             for (int i = 0; i < steps; i++)
             {
-                Cs.print("" + type);
+                Cs.Print("" + type);
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
             }
-            if (end.HasValue) { Cs.print("" + end); }
+            if (end.HasValue) { Cs.Print("" + end); }
         }
         public static void right(int steps, char? type, char? start, char? end)
         {
-            if (start.HasValue) { Cs.print("" + start); steps--; }
+            if (start.HasValue) { Cs.Print("" + start); steps--; }
             if (end.HasValue) { steps--; }
-            for (int i = 0; i < steps; i++) { Cs.print("" + type); }
-            if (end.HasValue) { Cs.print("" + end); }
+            for (int i = 0; i < steps; i++) { Cs.Print("" + type); }
+            if (end.HasValue) { Cs.Print("" + end); }
         }
         public static void left(int steps, char? type, char? start, char? end)
         {
-            if (start.HasValue) { Console.CursorLeft -= 2; Cs.print("" + start); steps--; }
+            if (start.HasValue) { Console.CursorLeft -= 2; Cs.Print("" + start); steps--; }
             if (end.HasValue) { steps--; }
-            for (int i = 0; i < steps; i++) { Console.CursorLeft -= 2; Cs.print("" + type); }
-            if (end.HasValue) { Cs.print("" + end); }
+            for (int i = 0; i < steps; i++) { Console.CursorLeft -= 2; Cs.Print("" + type); }
+            if (end.HasValue) { Cs.Print("" + end); }
         }
     }
 }

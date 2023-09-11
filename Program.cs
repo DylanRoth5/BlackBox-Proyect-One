@@ -17,10 +17,11 @@
             // Menu Program
             while (running){
                 //The menu function is called by passing it the title and an array of options
-                int result = Cs.menu(title, options);
-                Cs.clear();
+                int result = Cs.Menu(title, options);
+                Cs.Clear();
                 switch (result){
                     case 1: 
+                        // HangMan game
                         Hangman.Start();
                         break;
                     case 2: 
@@ -33,10 +34,10 @@
                         break;
                     default: 
                         //In case an error occurs, the default is executed
-                        Cs.printLine("Algun error sucedio."); Cs.enterClear(); 
+                        Cs.PrintLine("Algun error sucedio."); Cs.EnterClear(); 
                         break;
                 }
-                Cs.enterClear(); // this is so the menu doesn't start right away
+                Cs.EnterClear(); // this is so the menu doesn't start right away
             }
         }
     }

@@ -19,9 +19,9 @@ namespace BlackBox_Proyect_One
                 // Gallows drawing
                 Gallow(0, 0);
                 // Show the hiddden word and the remaining guesses
-                Cs.printAt(15, 8, $"Guess the Word: {hiddenWord}");
+                Cs.PrintAt(15, 8, $"Guess the Word: {hiddenWord}");
                 //The hidden word that we are going to guess and the attempts we have left are passed through the console
-                Cs.printAt(15, 10, $"Attempts Left: {6 - wrongAttempts}");
+                Cs.PrintAt(15, 10, $"Attempts Left: {6 - wrongAttempts}");
                 // The letter entered by the player is read
                 char letter = Console.ReadKey().KeyChar;
                 if (secretWord.Contains(letter)){
@@ -34,15 +34,15 @@ namespace BlackBox_Proyect_One
                     // Check if the word was guessed
                     if (hiddenWord == secretWord){
                         gameGoing = false;
-                        Cs.clear();
-                        Cs.printLine("¡YOU WON!");
+                        Cs.Clear();
+                        Cs.PrintLine("¡YOU WON!");
                     }
                 }
                 else {
                     // Increased failed attempts to six, which is the number of limbs the Hangman has
                     wrongAttempts++;
                     bool rightFeet = false, leftFeet = false, torso = false, rightHand = false, leftHand = false, head = false;
-                    Cs.position(0, 0);
+                    Cs.Position(0, 0);
                     //A body part is drawn every time a mistake is made
                     if (wrongAttempts == 1) { rightFeet = true; }
                     if (wrongAttempts == 2) { leftFeet = true; }
@@ -50,7 +50,7 @@ namespace BlackBox_Proyect_One
                     if (wrongAttempts == 4) { rightHand = true; }
                     if (wrongAttempts == 5) { leftHand = true; }
                     if (wrongAttempts == 6) { head = true; }
-                    Cs.colorFlip(ConsoleColor.Black, ConsoleColor.Red);
+                    Cs.ColorFlip(ConsoleColor.Black, ConsoleColor.Red);
                     // Parts of the body to draw
                     if (rightFeet) { Gr.point(9, 4, '\\'); }
                     if (leftFeet) { Gr.point(7, 4, '/'); }
@@ -60,9 +60,9 @@ namespace BlackBox_Proyect_One
                     if (head){
                         Gr.point(8, 2, '0');
                         gameGoing = false;
-                        Cs.clear();
-                        Cs.printAt(12, 5, "You Lost");
-                        Cs.printAt(12, 7, "Word: " + secretWord);
+                        Cs.Clear();
+                        Cs.PrintAt(12, 5, "You Lost");
+                        Cs.PrintAt(12, 7, "Word: " + secretWord);
                     }
                 }
             }
@@ -75,12 +75,12 @@ namespace BlackBox_Proyect_One
         }
         // The function receives parameters in x and y to position the pointer and draw the gallow
         static void Gallow(int x, int y){
-            Cs.colorFlip(ConsoleColor.Black, ConsoleColor.DarkRed);
-            Cs.position(x, y);
+            Cs.ColorFlip(ConsoleColor.Black, ConsoleColor.DarkRed);
+            Cs.Position(x, y);
             Gr.down(7, '█', null, null);
             Gr.right(5, '█', null, null);
             //Resets the position of x and y to the first position
-            Cs.position(x, y);
+            Cs.Position(x, y);
             Gr.right(8, '█', null, null);
             Gr.down(2, '│', '█', null);
         }
