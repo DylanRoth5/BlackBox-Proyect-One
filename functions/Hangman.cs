@@ -23,7 +23,7 @@ namespace BlackBox_Proyect_One
                 //The hidden word that we are going to guess and the attempts we have left are passed through the console
                 Cs.PrintAt(15, 10, $"Attempts Left: {6 - wrongAttempts}");
                 // The letter entered by the player is read
-                char letter = Console.ReadKey().KeyChar;
+                char letter = Cs.ValidateLetter();
                 if (secretWord.Contains(letter)){
                     // If the letter entered is found in the word, it is printed
                     for (int i = 0; i < secretWord.Length; i++){

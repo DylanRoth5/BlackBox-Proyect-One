@@ -2,6 +2,25 @@
 {
     public class Cs
     {
+        //Validates that a character is a letter and ensures that an uppercase letter is always returned
+        public static char ValidateLetter(){
+            //Convert the letter to ASCII
+            char letter = ' ';
+            ConsoleKeyInfo consoleKeyInfo;
+            do {
+                consoleKeyInfo = Console.ReadKey(intercept: true);
+                int ASCII = Convert.ToInt32(consoleKeyInfo.KeyChar);
+                if((ASCII >= 97 && ASCII <= 122)||(ASCII >= 65 && ASCII<=90)){
+                    letter = consoleKeyInfo.KeyChar;
+                }
+            }while(letter == ' ');
+            if(letter != ' ')
+            {
+                return char.ToLower(letter);
+            }
+            //If it is not a letter, it recursively executes it again until a letter is selected
+            return ValidateLetter();
+        }
         public static void PrintLine(string? word="") => Console.WriteLine("" + word);
         public static void Position(int x, int y) => Console.SetCursorPosition(x, y);
         public static void PositionX(int x) => Console.CursorLeft = x;
@@ -25,8 +44,15 @@
         public static void EnterClear()
         {
             PrintLine("Press enter.");
-            Read();
-            Console.Clear();
+             while (true)
+            {
+                ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
+                if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    Clear();
+                    break;
+                }
+            }
         }
         public static void ColorFlip(ConsoleColor background, ConsoleColor foreground)
         {
