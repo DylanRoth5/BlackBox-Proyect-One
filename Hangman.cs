@@ -4,33 +4,34 @@ namespace BlackBox_Proyect_One
     {
         public static void Start()
         {
-            // Lista de palabras para adivinar
+            // List of words
             List<string> listaDePalabras = new(){
                 "banana", "elemento", "murcielago", "hospital", "computadora", "emoji",
                 "pastor", "dios", "mochila", "auto", "gorila", "argentina", "atmosfera"
             };
-            // Seleccionamos una palabra secreta al azar
+            // Select one word at random
             string secretWord = ChooseWord(listaDePalabras);
             string hiddenWord = new('_', secretWord.Length);
-            // Variables para controlar el juego y los intentos fallidos
+            // Variables to control play and failed attempts
             bool gameGoing = true;
             int wrongAttempts = 0;
             while (gameGoing){
-                // Dibujo de la horca
+                // Gallows drawing
                 Gallow(0, 0);
-                // Mostramos la palabra oculta y los intentos restantes
+                // Show the hiddden word and the remaining guesses
                 Cs.printAt(15, 8, $"Guess the Word: {hiddenWord}");
+                //The hidden word that we are going to guess and the attempts we have left are passed through the console
                 Cs.printAt(15, 10, $"Attempts Left: {6 - wrongAttempts}");
-                // Leer la letra ingresada por el jugador
-                char letra = Console.ReadKey().KeyChar;
-                if (secretWord.Contains(letra)){
-                    // Si la letra está en la palabra, la insertamos en la palabra oculta
+                // The letter entered by the player is read
+                char letter = Console.ReadKey().KeyChar;
+                if (secretWord.Contains(letter)){
+                    // If the letter entered is found in the word, it is printed
                     for (int i = 0; i < secretWord.Length; i++){
-                        if (secretWord[i] == letra){
-                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letra.ToString());
+                        if (secretWord[i] == letter){
+                            hiddenWord = hiddenWord.Remove(i, 1).Insert(i, letter.ToString());
                         }
                     }
-                    // Verificar si adivinó la palabra
+                    // Check if the word was guessed
                     if (hiddenWord == secretWord){
                         gameGoing = false;
                         Cs.clear();
@@ -38,11 +39,11 @@ namespace BlackBox_Proyect_One
                     }
                 }
                 else {
-                    // Incrementamos los intentos fallidos hasta 6 (la cantidad de figuras que entran en el ahorcado)
+                    // Increased failed attempts to six, which is the number of limbs the Hangman has
                     wrongAttempts++;
                     bool rightFeet = false, leftFeet = false, torso = false, rightHand = false, leftHand = false, head = false;
                     Cs.position(0, 0);
-                    // Dibujamos una parte del cuerpo cada vez que se comete un error
+                    //A body part is drawn every time a mistake is made
                     if (wrongAttempts == 1) { rightFeet = true; }
                     if (wrongAttempts == 2) { leftFeet = true; }
                     if (wrongAttempts == 3) { torso = true; }
@@ -50,7 +51,7 @@ namespace BlackBox_Proyect_One
                     if (wrongAttempts == 5) { leftHand = true; }
                     if (wrongAttempts == 6) { head = true; }
                     Cs.colorFlip(ConsoleColor.Black, ConsoleColor.Red);
-                    // Dibujamos el cuerpo del ahorcado
+                    // Parts of the body to draw
                     if (rightFeet) { Gr.point(9, 4, '\\'); }
                     if (leftFeet) { Gr.point(7, 4, '/'); }
                     if (torso) { Gr.point(8, 3, '|'); }
@@ -66,19 +67,19 @@ namespace BlackBox_Proyect_One
                 }
             }
         }
-        // Método para elegir una palabra al azar de la lista
-        static string ChooseWord(List<string> listaDePalabras){
+        // The fuction receives a list of words as a parameter and randomly chooses the index of one of them
+        static string ChooseWord(List<string> wordsList){
             Random random = new();
-            int indiceAleatorio = random.Next(0, listaDePalabras.Count);
-            return listaDePalabras[indiceAleatorio];
+            int randomIndex = random.Next(0, wordsList.Count);
+            return wordsList[randomIndex];
         }
-        // Función para dibujar la horca
+        // The function receives parameters in x and y to position the pointer and draw the gallow
         static void Gallow(int x, int y){
             Cs.colorFlip(ConsoleColor.Black, ConsoleColor.DarkRed);
             Cs.position(x, y);
             Gr.down(7, '█', null, null);
             Gr.right(5, '█', null, null);
-            // Ponemos otra vez SetCursorPosition para reiniciar la x e y a 0
+            //Resets the position of x and y to the first position
             Cs.position(x, y);
             Gr.right(8, '█', null, null);
             Gr.down(2, '│', '█', null);
