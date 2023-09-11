@@ -34,7 +34,7 @@
                         break;
                     default: 
                         //In case an error occurs, the default is executed
-                        Cs.PrintLine("Algun error sucedio."); Cs.EnterClear(); 
+                        Cs.PrintLine("Algun error sucedio."); 
                         break;
                 }
                 Cs.EnterClear(); // this is so the menu doesn't start right away

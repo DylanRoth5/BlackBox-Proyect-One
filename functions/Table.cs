@@ -81,7 +81,7 @@ namespace BlackBox_Proyect_One
                 y += 2;
             }
             // Leaves one line after the table
-            Console.WriteLine("\n\n");
+            Cs.PrintLine("\n\n");
         }
         private int CalculateColumnWidth(int col){
             // Given the index "col" of a column from the matrix, returns the min widht that the column
