@@ -9,31 +9,29 @@
 
         public static void Menu()
         {
+            // Statements
             string title = "Proyect One";
             string[] options = { "Ahorcado", "Tablas" };
             bool running = true;
-            Console.Clear();
-            while (running)
-            {
-                int result = Py.menu(title, options);
-                Console.Clear();
-                switch (result)
-                {
+            // Menu Program
+            while (running){
+                int result = Cs.menu(title, options);
+                Cs.clear();
+                switch (result){
                     case 1: 
-                        Hung.Start();
-                        Py.enterClear(); 
+                        Hangman.Start();
                         break;
                     case 2: 
                         nTable.Start();
-                        Py.enterClear(); 
                         break;
                     case 0: 
                         running = false; 
                         break;
                     default: 
-                        Py.printLine("Algun error sucedio."); Py.enterClear(); 
+                        Cs.printLine("Algun error sucedio."); Cs.enterClear(); 
                         break;
                 }
+                Cs.enterClear(); // this is so the menu doesn't start right away
             }
         }
     }
