@@ -10,6 +10,8 @@ namespace BlackBox_Proyect_One
                 { "Dylan", "Roth", "20"},
                 { "Aylem", "Villalba", "20"}
             };
+            Table table = new Table(m);
+            table.DrawTable();
             /*
             string [,] m1 = new string[,] 
             {
@@ -29,8 +31,6 @@ namespace BlackBox_Proyect_One
             };
             */
             string[,] m3 = new string[,] {{ "Name", "Lastname", "Age"}};
-            Table table = new Table(m);
-            table.DrawTable();
             /*
             table = new Table(m1);
             Console.SetCursorPosition(35, 5);
